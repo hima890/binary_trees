@@ -1,0 +1,54 @@
+HOW TO WORK ON THE PROJECT:
+1. Read the task in the intrant then issue it on the github rebo
+2. Assign the task to your self or your team mummber and add a lebel to incdute what the task need (documentation, bug, feature..etc )
+3. Start a new branch with task name:
+    Let say you wont to work on a new feature:
+    1. After you assign or assign to the task go to run the "git pull" command
+    2. Check your current branch by running "git branch" if your on main its ok else run "git checkout main"
+    3. Now create a new branch so you can do your task with out intract with the main codebase and your team tasks:
+        1. Your branch name should be clear what its for something like:
+            "Feature/Function-that-creates-a-binary-tree-node"
+        2. Devolpe your task and when you finsh go to github and write a pull request
+        3. A pull regust its a requst to your team memmbers to review your code and your task
+            Then when your change on the code approve github will let you know if there is a confilgs or not
+            If not you can merge your branch to the main from github else you eill need to resolve the conflicts
+        4. Delete the branch form github
+        5. Deletethe branch from your local by run
+            "git checkout main"
+            "git branch -d <branch name>"
+        6. Close the issue on github and go to your next task
+
+HOW to write your commits messages ex.:
+"BugFixed/fxied-bug-onFunction"
+"Project/create-the-project-files"
+
+PROJECT STRUCTRE:
+.
+├── 0-binary_tree_node.c
+├── 10-binary_tree_depth.c
+├── 11-binary_tree_size.c
+├── 12-binary_tree_leaves.c
+├── 13-binary_tree_nodes.c
+├── 14-binary_tree_balance.c
+├── 15-binary_tree_is_full.c
+├── 16-binary_tree_is_perfect.c
+├── 17-binary_tree_sibling.c
+├── 18-binary_tree_uncle.c
+├── 1-binary_tree_insert_left.c
+├── 2-binary_tree_insert_right.c
+├── 3-binary_tree_delete.c
+├── 4-binary_tree_is_leaf.c
+├── 5-binary_tree_is_root.c
+├── 6-binary_tree_preorder.c
+├── 7-binary_tree_inorder.c
+├── 8-binary_tree_postorder.c
+├── 9-binary_tree_height.c
+├── AUTHORS
+├── binary_tree_print.c
+├── binary_trees.h
+├── LICENSE
+├── Notes
+│   └── notes.txt
+└── README.md
+
+It was created by the "tree" command on ubuntu
