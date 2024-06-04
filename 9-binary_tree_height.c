@@ -1,34 +1,20 @@
 #include "binary_trees.h"
-#include <stdio.h>
 
 /**
-* binary_tree_height -  Measures the height of a binary tree
-*
-* @tree: Pointer to the root node of the tree
-*
-* Return: The height of a binary tree
-*/
+ * binary_tree_height - Measures the height of a binary tree.
+ * @tree: A pointer to the root node of the tree to measure the height.
+ *
+ * Return: If tree is NULL, your function must return 0, else return height.
+ */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	if (tree == NULL)
-		return (0);
-
-	/* Recursively calculate the height of the left and right subtrees */
-	size_t left_height = 0;
-	size_t right_height = 0;
-
-	/* Calculate height of left subtree if it exists */
-	if (tree->left)
+	if (tree)
 	{
-		left_height = 1 + binary_tree_height(tree->left);
-	}
+		size_t l = 0, r = 0;
 
-	/* Calculate height of right subtree if it exists */
-	if (tree->right)
-	{
-		right_height = 1 + binary_tree_height(tree->right);
+		l = tree->left ? 1 + binary_tree_height(tree->left) : 0;
+		r = tree->right ? 1 + binary_tree_height(tree->right) : 0;
+		return ((l > r) ? l : r);
 	}
-
-	/* Return the greater of the two heights */
-	return ((left_height > right_height) ? left_height : right_height);
+	return (0);
 }
