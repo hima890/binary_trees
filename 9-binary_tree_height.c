@@ -14,12 +14,21 @@ size_t binary_tree_height(const binary_tree_t *tree)
 		return (0);
 
 	/* Recursively calculate the height of the left and right subtrees */
-	size_t left_height = binary_tree_height(tree->left);
-	size_t right_height = binary_tree_height(tree->right);
+	size_t left_height = 0;
+	size_t right_height = 0;
 
-	/**
-	* Return the maximum height between left and right subtrees
-	* plus 1 for the current node
-	*/
+	/* Calculate height of left subtree if it exists */
+	if (tree->left)
+	{
+		left_height = 1 + binary_tree_height(tree->left);
+	}
+
+	/* Calculate height of right subtree if it exists */
+	if (tree->right)
+	{
+		right_height = 1 + binary_tree_height(tree->right);
+	}
+
+	/* Return the greater of the two heights */
 	return ((left_height > right_height) ? left_height : right_height);
 }
