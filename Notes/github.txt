@@ -8,7 +8,9 @@ HOW TO WORK ON THE PROJECT:
     3. Now create a new branch so you can do your task with out intract with the main codebase and your team tasks:
         1. Your branch name should be clear what its for something like:
             "Feature/Function-that-creates-a-binary-tree-node"
-        2. Devolpe your task and when you finsh go to github and write a pull request
+        2. Devolpe your task and push the branch change by run:
+            1. "git push --set-upstream origin Feature/<your branch name>"
+            3. When you finsh go to github and write a pull request
         3. A pull regust its a requst to your team memmbers to review your code and your task
             Then when your change on the code approve github will let you know if there is a confilgs or not
             If not you can merge your branch to the main from github else you eill need to resolve the conflicts
@@ -47,6 +49,7 @@ PROJECT STRUCTRE:
 ├── binary_tree_print.c
 ├── binary_trees.h
 ├── LICENSE
+├── .gitignore
 ├── Notes
 │   └── notes.txt
 └── README.md
