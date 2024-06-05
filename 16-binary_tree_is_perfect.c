@@ -1,7 +1,7 @@
 #include "binary_trees.h"
-#include <math.h>
+
 /**
- *pow - returns the value of x raised to the power of y
+ *powr - returns the value of x raised to the power of y
  *@x: the value to exponentiate
  *@y: the power to raise x to
  *Return: x to the power of y, or -1 if y is negative
@@ -38,7 +38,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	size = binary_tree_size(tree);
 
 	/* Check if the tree satisfies the perfect tree formula. */
-	per_formula = pow(2, height + 1) - 1;
+	per_formula = powr(2, height + 1) - 1;
 	return (per_formula == size);
 }
 
