@@ -10,23 +10,23 @@ binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree)
 {
 	binary_tree_t *new_root;
 
-	/* If the tree is NULL or if the right child of the tree is NULL,*/
+	/* If the tree is NULL or if the left child of the tree is NULL,*/
 	/* we cannot perform a left rotation.*/
 	if (tree == NULL || tree->left == NULL)
 		return (NULL);
 
-	/* Set new_root to the right child of the current root.*/
+	/* Set new_root to the left child of the current root.*/
 	new_root = tree->left;
 
-	/*The left child of the new root becomes the right child of the root.*/
+	/*The right child of the new root becomes the left child of the root.*/
 	tree->left = new_root->right;
 
-	/* If the new root's left child is not NULL,*/
+	/* If the new root's right child is not NULL,*/
 	/* set its parent to the current root.*/
 	if (new_root->right != NULL)
 		new_root->right->parent = tree;
 
-	/* Set the left child of the new root to the current root.*/
+	/* Set the right child of the new root to the current root.*/
 	new_root->right = tree;
 
 	/* Update the parent of the new root to be the parent of the current root.*/
