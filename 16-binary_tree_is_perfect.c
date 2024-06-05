@@ -1,5 +1,22 @@
 #include "binary_trees.h"
-#include <math.h>
+
+/**
+ *pow - returns the value of x raised to the power of y
+ *@x: the value to exponentiate
+ *@y: the power to raise x to
+ *Return: x to the power of y, or -1 if y is negative
+ */
+
+int pow(int x, int y)
+{
+	if (y < 0)
+		return (-1);
+	if (y == 0)
+		return (1);
+	else
+		return (x * pow(x, y - 1));
+
+}
 
 /**
 * binary_tree_is_perfect -  Checks if a binary tree is perfect
