@@ -35,7 +35,7 @@ void currentLevel(const binary_tree_t *root, int level, void (*func)(int))
 
 	if (level == 1)
 		func(root->n);
-	else if (level > 1)
+	else
 	{
 		currentLevel(root->left, level - 1, func);
 		currentLevel(root->right, level - 1, func);
