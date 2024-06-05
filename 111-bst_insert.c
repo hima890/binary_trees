@@ -11,12 +11,10 @@ bst_t *bst_insert(bst_t **tree, int value)
 {
 	bst_t *curr, *new;
 
-	/* Check if the tree pointer is not NULL*/
 	if (tree != NULL)
 	{
 		curr = *tree;
 
-		/* If the tree is empty, create a new root node*/
 		if (curr == NULL)
 		{
 			new = binary_tree_node(curr, value);
@@ -25,32 +23,21 @@ bst_t *bst_insert(bst_t **tree, int value)
 			return (*tree = new);
 		}
 
-		/*
-		* If the value to be inserted is less than,
-		* the current node's value, insert in the left subtree
-		**/
-		if (value < curr->n)
+		if (value < curr->n) /* insert in left subtree */
 		{
-			// If the left child exists, recursively insert into the left subtree
 			if (curr->left != NULL)
 				return (bst_insert(&curr->left, value));
 
-			// Otherwise, create a new node and set it as the left child
 			new = binary_tree_node(curr, value);
 			if (new == NULL)
-				return (NULL);		   // Return NULL if node creation fails
-			return (curr->left = new); // Set the new node as the left child and return it
+				return (NULL);
+			return (curr->left = new);
 		}
-
-		// If the value to be inserted is greater than the current node's value,
-		// insert in the right subtree
-		if (value > curr->n)
+		if (value > curr->n) /* insert in right subtree */
 		{
-			// If the right child exists, recursively insert into the right subtree
 			if (curr->right != NULL)
 				return (bst_insert(&curr->right, value));
 
-			/* Otherwise, create a new node and set it as the right child*/
 			new = binary_tree_node(curr, value);
 			if (new == NULL)
 				return (NULL);
