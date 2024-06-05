@@ -1,68 +1,26 @@
 #include "binary_trees.h"
 
 /**
-* binary_trees_ancestor - Finds the lowest common ancestor of two nodes
-*
-* @first: Pointer to the first node
-*
-* @second: Pointer to the second node
-*
-* Return: A pointer to the lowest common ancestor
-*/
-
+ * binary_trees_ancestor - Finds the lowest common ancestor of two nodes.
+ * @first: Pointer to the first node.
+ * @second: Pointer to the second node.
+ *
+ * Return: If no common ancestors return NULL, else return common ancestor.
+ */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		const binary_tree_t *second)
 {
-	/* If either node is NULL, there's no common ancestor. */
-	if (first == NULL || second == NULL)
+	binary_tree_t *mom, *pop;
+
+	if (!first || !second)
 		return (NULL);
+	if (first == second)
+		return ((binary_tree_t *)first);
 
-	/* Calculate the depths of both nodes. */
-	size_t depth_first = binary_tree_depth(first);
-	size_t depth_second = binary_tree_depth(second);
-
-	/* Adjust the deeper node's position to match the other node's depth. */
-	while (depth_first > depth_second)
-	{
-		first = first->parent;
-		depth_first--;
-	}
-	while (depth_second > depth_first)
-	{
-		second = second->parent;
-		depth_second--;
-	}
-
-	/* Traverse up the tree until a common ancestor is found. */
-	while (first && second)
-	{
-		if (first == second)
-			return ((binary_tree_t *)first);
-		first = first->parent;
-		second = second->parent;
-	}
-
-	return ((binary_tree_t *)first);
-}
-
-/**
- * binary_tree_depth - Measures the depth of a node in a binary tree.
- * @tree: Node to calculate the depth of.
- *
- * Return: Depth of the node, or 0 if the tree is NULL.
- */
-size_t binary_tree_depth(const binary_tree_t *tree)
-{
-	size_t depth = 0;
-
-	if (!tree)
-		return (0);
-
-	while (tree->parent)
-	{
-		depth++;
-		tree = tree->parent;
-	}
-
-	return (depth);
+	mom = first->parent, pop = second->parent;
+	if (first == pop || !mom || (!mom->parent && pop))
+		return (binary_trees_ancestor(first, pop));
+	else if (mom == second || !pop || (!pop->parent && mom))
+		return (binary_trees_ancestor(mom, second));
+	return (binary_trees_ancestor(mom, pop));
 }
