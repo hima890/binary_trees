@@ -129,4 +129,7 @@ bst_t *bst_insert(bst_t **tree, int value);
 bst_t *array_to_bst(int *array, size_t size);
 bst_t *min_value_node(bst_t *node);
 bst_t *bst_remove(bst_t *root, int value);
+int is_bst(const binary_tree_t *tree, int min, int max);
+int binary_tree_is_avl(const binary_tree_t *tree);
+int is_balanced(const binary_tree_t *tree);
 #endif
