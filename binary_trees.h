@@ -10,12 +10,12 @@
 /* Data structures */
 
 /**
-* struct binary_tree_s - Binary tree node
-* @n: Integer stored in the node
-* @parent: Pointer to the parent node
-* @left: Pointer to the left child node
-* @right: Pointer to the right child node
-*/
+ * struct binary_tree_s - Binary tree node
+ * @n: Integer stored in the node
+ * @parent: Pointer to the parent node
+ * @left: Pointer to the left child node
+ * @right: Pointer to the right child node
+ */
 struct binary_tree_s
 {
 	int n;
@@ -30,15 +30,47 @@ typedef struct binary_tree_s avl_t;
 typedef struct binary_tree_s heap_t;
 
 /**
-* struct levelorder_queue_s - Level order traversal queue.
-* @node: A node of a binary tree.
-* @next: The next node to traverse to in the binary tree.
-*/
+ * struct levelorder_queue_s - Level order traversal queue.
+ * @node: A node of a binary tree.
+ * @next: The next node to traverse to in the binary tree.
+ */
 typedef struct levelorder_queue_s
 {
 	binary_tree_t *node;
 	struct levelorder_queue_s *next;
 } levelorder_queue_t;
+
+/**
+ * struct queue_node - Node of a queue used for level-order traversal
+ * @node: Pointer to the binary tree node
+ * @next: Pointer to the next node in the queue
+ *
+ * Description: This structure represents a node in a queue, which is used
+ * for level-order traversal of a binary tree. Each node in the queue contains
+ * a pointer to a binary tree node and a pointer to the next node in the queue.
+ */
+typedef struct queue_node
+{
+	struct binary_tree_s *node;
+	struct queue_node *next;
+} queue_node_t;
+
+/**
+ * struct queue - Queue data structure
+ * @front: Pointer to the front node of the queue
+ * @rear: Pointer to the rear node of the queue
+ *
+ * Description: This structure represents a queue, which is
+ *  used for level-order
+ * traversal of a binary tree. The queue maintains pointers
+ *  to the front and rear
+ * nodes to facilitate efficient enqueue and dequeue operations.
+ */
+typedef struct queue
+{
+	queue_node_t *front;
+	queue_node_t *rear;
+} queue_t;
 
 /* Printing helper function */
 void binary_tree_print(const binary_tree_t *);
@@ -67,7 +99,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree);
 binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
-const binary_tree_t *second);
+									 const binary_tree_t *second);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 int binary_tree_is_complete(const binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
@@ -88,4 +120,9 @@ heap_t *array_to_heap(int *array, size_t size);
 int heap_extract(heap_t **root);
 int *heap_to_sorted_array(heap_t *heap, size_t *size);
 void launch_test(binary_tree_t *n1, binary_tree_t *n2);
+queue_t *create_queue(void);
+void enqueue(queue_t *q, binary_tree_t *node);
+binary_tree_t *dequeue(queue_t *q);
+void free_queue(queue_t *q);
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 #endif
