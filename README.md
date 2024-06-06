@@ -1,3 +1,6 @@
+![Alt text](image.jpg)
+
+
 # 0x1D C - Binary Trees :
 
 > This project explores the concepts and implementation of binary trees in C, developed collaboratively with [Ruba Salih](https://github.com/Ruba-Salih/). It covers various operations and properties of binary trees, enhancing understanding of data structures and algorithms.
