@@ -125,4 +125,6 @@ void enqueue(queue_t *q, binary_tree_t *node);
 binary_tree_t *dequeue(queue_t *q);
 void free_queue(queue_t *q);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+bst_t *bst_insert(bst_t **tree, int value);
+bst_t *array_to_bst(int *array, size_t size);
 #endif
